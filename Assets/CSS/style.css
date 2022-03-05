@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #fff;
+    font-family: 'Roboto', 'Ariel', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+  }
+  
+  #start-btn {
+    text-align: center;
+    align-items: center;
+  }
+  
+  button {
+    display: block;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: #6d4da8;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: #bb7be0;
+  }
+  
+  header a {
+    color: #bb7be0;
+  }
+  
+  #question-container {
+    font-size: 34px;
+    font-weight: 700;
+  }
+  
+  #container {
+    margin: 80px auto;
+    /* text-align: center; */
+    font-size: 18px;
+    transition: 0.3s;
+    width: 70%;
+    height: 500px;
+    padding-top: 20px;
+  }
+  
+  .card-contents {
+    padding: 5px 5px 10px 5px;
+  }
+  
+  .hide { 
+    display: none;
+  }
+  
+  /* high scores and timer START*/
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  #timer {
+    height: 36px;
+    margin: 0;
+    color: #6d4da8;
+  }
+  
+  nav button {
+    color: #6d4da8;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+  }
+  /* high scores and timer END*/
+  
+  .scores-container {
+    font-size: 18px;
+  }
+  
+  input {
+    font-size: 18px;
+    height: 50px;
+    font-family: 'Roboto', 'Ariel', sans-serif;
+  }
+  
+  td, th {
+    font-size: 21px;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+  #scores-container {
+    text-align: center;
+  }
+  
+  table {
+    align-items: center;
+  }
+  
+  form button {
+    display: inline;
+  }
+  
+  .correct {
+    color: green;
+  }
+  
+  .wrong {
+    color: red;
+  }
