@@ -16,7 +16,7 @@ var questions = [
       question: "Commonly used data types DO not include:",
       choices: ["strings", "booleans", "alerts", "numbers"],
       answer: "booleans",
-    };
+    },
 
     {
         question: "The condition in an if / else statement is enclosed with _____.",
@@ -49,3 +49,25 @@ var questions = [
         answer: "console.log",
       },
     ];
+
+function startGame() {
+    scoresContainerElement.classList.add("hide");
+    startButton.classList.add("hide");
+    timer();
+    questionContainerElement.classList.remove("hide");
+    showQuestion();
+    }
+
+function timer() {
+    timer = setInterval(function () {
+        timeLeft = timeLeft - 1;
+        if (timeLeft > 0) {
+            timerElement.textContent = "Time: " + timeLeft;
+            timeLeft--;
+          } else {
+            timerElement.textContent = "Time's up!";
+      
+            endGame();
+          }
+        }, 1000);
+      };
