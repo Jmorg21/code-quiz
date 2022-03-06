@@ -71,3 +71,88 @@ function timer() {
           }
         }, 1000);
       };
+
+function showQuestion() {
+    questionElement.textContent = questions[currentQuestionIndex].question; //pointing to question array, then nested question array
+    answerButtonsElement.innerHTML = "";
+    questions[currentQuestionIndex].choices.forEach((answer) => {
+          
+        const button = document.createElement("button");
+        button.textContent = answer;
+        button.classList.add("btn");
+        button.setAttribute("value", answer);
+      
+        button.addEventListener("click", selectAnswer);
+      
+        answerButtonsElement.appendChild(button);
+    });
+};
+      
+function selectAnswer() {
+    const selectedButton = this.value;
+      
+    if (selectedButton !== questions[currentQuestionIndex].answer) {
+         timeLeft -= 5;
+      
+        timerElement.textContent = timeLeft;
+    } else {}
+      
+    currentQuestionIndex++;
+      
+    if (currentQuestionIndex === questions.length) {
+        endGame();
+    } else {
+        showQuestion();
+    }
+};
+      
+function endGame() {
+    questionContainerElement.classList.add("hide");
+    scoresContainerElement.classList.remove("hide");
+    timerElement.classList.add("hide");
+    clearInterval(timer); // stops timer
+        
+ };
+      
+function saveInitials() {
+    scoresContainerElement.setAttribute('class', "hide");
+    document.getElementById('scoresList').classList.remove("hide");
+    var initialsInput = document.querySelector("#initials").value;
+      
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+      
+    var newScore = {
+        initials: initialsInput,
+        score: timeLeft,
+    };
+    console.log(timeLeft);
+      
+    highscores.push(newScore);
+      
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+    loadScores()
+};
+      
+function loadScores() {
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+      
+    highscores.sort(function (a, b) {
+        return b.score - a.score;
+    });
+      
+    var scoresTable = document.getElementById("scoresTable");
+      
+    highscores.forEach(function (score) {
+        var playerRow = document.createElement("li");
+      
+        playerRow.textContent = score.initials + ' : ' + score.score;
+          
+        scoresTable.append(playerRow);
+    });
+};
+      
+startButton.addEventListener("click", startGame);
+doneButton.addEventListener("click", saveInitials);
+document.getElementById('playAgain').addEventListener('click', function(){
+    window.location.reload(); //reloading page to restart quiz
+});
