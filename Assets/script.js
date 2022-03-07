@@ -60,7 +60,7 @@ function startGame() {
 
 function timer() {
     timer = setInterval(function () {
-        timeLeft = timeLeft - 1;
+        timeLeft = timeLeft - 0;
         if (timeLeft > 0) {
             timerElement.textContent = "Time: " + timeLeft;
             timeLeft--;
